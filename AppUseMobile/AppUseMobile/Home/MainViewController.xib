@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="AppUseAcademy" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="Npy-qC-IOq" id="9zZ-23-92l"/>
+                <outlet property="buttonBuscar" destination="5kI-q8-Lfx" id="rQT-Eh-Hx6"/>
+                <outlet property="imageUse" destination="izb-gj-pQi" id="Whz-Zm-ewc"/>
+                <outlet property="textFieldCPF" destination="xJh-V9-iWz" id="QcK-F1-5Sc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hor-grad" translatesAutoresizingMaskIntoConstraints="NO" id="izb-gj-pQi">
+                    <rect key="frame" x="50" y="124" width="314" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="1M3-RI-1MC"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8t-NP-iTX">
+                    <rect key="frame" x="20" y="244" width="374" height="140"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kI-q8-Lfx">
+                            <rect key="frame" x="10" y="70" width="354" height="40"/>
+                            <color key="backgroundColor" red="0.29019607843137252" green="0.0" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="jql-VA-gdH"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Buscar">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="handlerButtonSearch:" destination="-1" eventType="touchUpInside" id="IZh-vl-MTt"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Digite o CEP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xJh-V9-iWz">
+                            <rect key="frame" x="10" y="10" width="354" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="YYu-W1-i2n"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="3JN-vX-pXg"/>
+                        <constraint firstAttribute="bottom" secondItem="5kI-q8-Lfx" secondAttribute="bottom" constant="30" id="BeR-9o-ciU"/>
+                        <constraint firstItem="5kI-q8-Lfx" firstAttribute="leading" secondItem="xJh-V9-iWz" secondAttribute="leading" id="N3t-s1-Kv5"/>
+                        <constraint firstItem="5kI-q8-Lfx" firstAttribute="top" secondItem="xJh-V9-iWz" secondAttribute="bottom" constant="20" id="S7Q-Z0-qNa"/>
+                        <constraint firstItem="5kI-q8-Lfx" firstAttribute="centerX" secondItem="V8t-NP-iTX" secondAttribute="centerX" id="TXR-IX-k58"/>
+                        <constraint firstItem="5kI-q8-Lfx" firstAttribute="leading" secondItem="V8t-NP-iTX" secondAttribute="leading" constant="10" id="Xd5-SB-ajv"/>
+                        <constraint firstItem="5kI-q8-Lfx" firstAttribute="trailing" secondItem="xJh-V9-iWz" secondAttribute="trailing" id="nha-jZ-CZO"/>
+                    </constraints>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Npy-qC-IOq">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                </activityIndicatorView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="V8t-NP-iTX" secondAttribute="trailing" constant="20" id="49G-iv-yZ6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="izb-gj-pQi" secondAttribute="trailing" constant="50" id="5nW-gU-8RN"/>
+                <constraint firstItem="izb-gj-pQi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="6od-nK-tnF"/>
+                <constraint firstItem="V8t-NP-iTX" firstAttribute="top" secondItem="izb-gj-pQi" secondAttribute="bottom" constant="50" id="8eU-VU-qN4"/>
+                <constraint firstItem="izb-gj-pQi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="9wb-nZ-XUa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Npy-qC-IOq" secondAttribute="bottom" id="XLa-yt-LjC"/>
+                <constraint firstItem="Npy-qC-IOq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="YjN-Gd-Z8X"/>
+                <constraint firstItem="V8t-NP-iTX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="dxY-d4-vgn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Npy-qC-IOq" secondAttribute="trailing" id="hfv-DO-4ng"/>
+                <constraint firstItem="Npy-qC-IOq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vKA-T3-Mam"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="hor-grad" width="501" height="252"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
