@@ -33,12 +33,14 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var textFieldCity: UITextField!
     @IBOutlet weak var textFieldState: UITextField!
     @IBOutlet weak var buttonEtiqueta: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         fillTextField()
+        setTextFieldDelegate()
     }
     
     override func viewWillAppear( _ animated: Bool) {
@@ -49,10 +51,6 @@ class SecondViewController: UIViewController {
     override func viewWillDisappear( _ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationItem.title = ""
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
     }
     
     // MARK: Actions
@@ -78,6 +76,18 @@ class SecondViewController: UIViewController {
         textFieldStreet.text = address.logradouro
     }
     
+    private func setTextFieldDelegate() {
+        textFieldCity.delegate = self
+        textFieldState.delegate = self
+        textFieldStreet.delegate = self
+        textFieldNumber.delegate = self
+        textFieldZipCode.delegate = self
+        textFieldRecipient.delegate = self
+        textFieldComplement.delegate = self
+        textFieldNeighborhood.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+    }
+    
     private func goToTag() {
         guard let fullAddress = fullAddress else { return }
         let thirdViewController = ThirdViewController(fullAddress: fullAddress)
@@ -91,5 +101,13 @@ extension String {
             return nil
         }
         return self
+    }
+}
+
+extension SecondViewController: UIGestureRecognizerDelegate, UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.resignFirstResponder() {
+        }
+        return true
     }
 }

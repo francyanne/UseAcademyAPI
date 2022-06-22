@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITextFieldDelegate {
     // MARK: Properties
     let viewModel = HomeViewModel()
     
@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         bindEvents()
         setupUI()
+        textFieldCPF.delegate = self
 }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -34,7 +35,9 @@ class MainViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func handlerButtonSearch(_ sender: Any) {
-        guard textFieldCPF.text?.count == 8 else { return }
+        guard textFieldCPF.text?.count == 8 else {
+           return showAlerts(alertTitle: "Erro", alertMessage: "Digite um CEP válido")
+        }
         activityIndicator.startAnimating()
         viewModel.getAddress(with: textFieldCPF.text ?? "60000000")
     }
@@ -53,6 +56,18 @@ class MainViewController: UIViewController {
         textFieldCPF.placeholder = "Digite o CEP"
         imageUse.image = UIImage(named: "hor-grad")
         activityIndicator.hidesWhenStopped = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textFieldCPF.resignFirstResponder() {
+        }
+        return true
+    }
+    
+    private func showAlerts(alertTitle: String?, alertMessage: String?) {
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
     
     private func goToAddress() {
